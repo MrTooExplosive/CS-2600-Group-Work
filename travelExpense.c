@@ -54,5 +54,13 @@ int main()
    totalCost += mealCost;
    printf("The total cost of the trip is $%.2f", totalCost);
 
+   //Calculate and report owed/saved amount
+   if (totalCost > totalAllowed)
+      printf("You owe $%.2f", totalCost - totalAllowed);
+   else if (totalCost < totalAllowed)
+      printf("You saved the company $%.2f", totalAllowed - totalCost);
+   else 
+      printf("You're efficient! You spent just as much as the company would allow!");
+
    return 0;
 }

@@ -13,10 +13,10 @@ int main()
    float taxiCost = getTaxiFees();
    float eventCost = getEventCost();
    float hotelCost = getHotelCost();
-   int rentals = getRentalAmount();
-   float meals[] = getNumberOfMeals(); //First position is breakfast, second position is lunch, and third position is dinner
+   float rentals = getRentalAmount();
+   float mealCost = getNumberOfMeals();
 
-   //Calculate total allowable cost
+   //Calculate and print total allowable cost
    float totalAllowed = 0;
    if (days != 1)
    {
@@ -24,14 +24,14 @@ int main()
       totalAllowed += (days - 2) * 12; //Lunches
       totalAllowed += (days - 2) * 16; //Dinners
    }
-   //Arrival day 
+   //Arrival day meals
    if (times[0] < 7)
       totalAllowed += 9 + 12 + 16;
    else if (times[0] < 12)
       totalAllowed += 12 + 16;
    else if (times[0] < 18)
       totalAllowed += 16;
-   //Departure day
+   //Departure day meals
    if (times[1] > 8)
       totalAllowed += 9;
    if (times[1] > 13)
@@ -41,5 +41,18 @@ int main()
    totalAllowed += 6 * days; //Parking
    totalAllowed += 90 * (days - 1); //Lodging
    totalAllowed += 10 * days; //Taxi service
+   printf("The total cost the company will cover is $%.2f", totalAllowed);
+
+   //Calculate and print total cost
+   float totalCost = airCost; 
+   totalCost += rentals;
+   totalCost += .27 * milesDriven;
+   totalCost += parkingCost;
+   totalCost += taxiCost;
+   totalCost += eventCost;
+   totalCost += hotelCost;
+   totalCost += mealCost;
+   printf("The total cost of the trip is $%.2f", totalCost);
+
    return 0;
 }

@@ -2,29 +2,29 @@
 #include <stdlib.h>
 
 //function to get any car rental fees
-double getCarRentalFees(double carRentalFee)
+double getCarRentalFees()
 {
     char userInput;
-
+    double carRentalFee = 0;
     //first asks for yes or no
-    printf("Did you rent a car during the trip? (Y/N)\n");
+    printf("\nDid you rent a car during the trip? (Y/N)\n");
     scanf(" %c", &userInput);
 
     //checking if they put smt other than y or n
     while ((userInput != 'Y') && (userInput != 'y') && (userInput != 'N') && (userInput != 'n'))
     {
-        printf("Please enter Y or N: ");
+        printf("\nPlease enter Y or N: ");
         scanf(" %c", &userInput);
     }
 
     if (userInput == 'Y' || userInput == 'y')
     {
-        printf("How much was the rental car?\n");
+        printf("\nHow much was the rental car?\n");
         scanf("%lf", &carRentalFee);
 
         while (carRentalFee < 0)
         {
-            printf("Please enter a valid amount for rental fee.\n");
+            printf("\nPlease enter a valid amount for rental fee.\n");
             scanf("%lf", &carRentalFee);
         }
     }
@@ -32,29 +32,30 @@ double getCarRentalFees(double carRentalFee)
 }
 
 //function to get private vehicle expense
-double getPrivateVehicleUsed(double privateVehicleCost)
+double getDrivenMiles()
 {
+    double privateVehicleCost = 0;
     double costPerMile = 0.27;
     double milesDriven;
     char userInput;
 
-    printf("Did you use a private vehicle during the trip? (Y/N)\n");
+    printf("\nDid you use a private vehicle during the trip? (Y/N)\n");
     scanf(" %c", &userInput);
 
     while ((userInput != 'Y') && (userInput != 'y') && (userInput != 'N') && (userInput != 'n'))
     {
-        printf("Please enter Y or N: ");
+        printf("\nPlease enter Y or N: ");
         scanf(" %c", &userInput);
     }
 
     if (userInput == 'Y' || userInput == 'y')
     {
-        printf("How many miles were driven?\n");
+        printf("\nHow many miles were driven?\n");
         scanf("%lf", &milesDriven);
 
         while (milesDriven < 0)
         {
-            printf("Please enter a valid number.\n");
+            printf("\nPlease enter a valid number.\n");
             scanf("%lf", &milesDriven);
         }
 
@@ -64,15 +65,16 @@ double getPrivateVehicleUsed(double privateVehicleCost)
 }
 
 //function to get any parking fees
-double getParkingFees(double parkingFee) 
+double getParkingFees() 
 {
-        printf("How much was spent on parking during the trip?\n");
+        double parkingFee = 0;
+        printf("\nHow much was spent on parking during the trip?\n");
         scanf("%lf", &parkingFee);
 
         //input validation part
         while (parkingFee < 0) 
         {
-            printf("Please enter a valid number.\n");
+            printf("\nPlease enter a valid number.\n");
             scanf("%lf", &parkingFee);
         }
 
@@ -80,15 +82,16 @@ double getParkingFees(double parkingFee)
 }
 
 //function to get any taxi fees
-double getTaxiFees(double taxiFee) 
+double getTaxiFees() 
 {
-        printf("How much was spent on taxis during the trip?\n");
+        double taxiFee = 0;
+        printf("\nHow much was spent on taxis during the trip?\n");
         scanf("%lf", &taxiFee);
 
         //input validation part
         while (taxiFee < 0) 
         {
-            printf("Please enter a valid number.\n");
+            printf("\nPlease enter a valid number.\n");
             scanf("%lf", &taxiFee);
         }
     return taxiFee; 

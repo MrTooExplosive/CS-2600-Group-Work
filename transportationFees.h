@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 
-static double getCarRentalFees(double carRentalFee);
-static double getPrivateVehicleUsed(double privateVehicleCost);
-static double getParkingFees(double parkingFee);
-static double getTaxiFees(double taxiFee); 
+static double getCarRentalFees();
+static double getDrivenMiles();
+static double getParkingFees();
+static double getTaxiFees(); 
 #endif

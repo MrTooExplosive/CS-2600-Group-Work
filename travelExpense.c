@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "daysTimeEventHotel.h"
 #include "transportationFees.h"
+#include "mealsAndAirfare.h"
 
 int main()
 {
@@ -11,12 +12,12 @@ int main()
    float airCost = getAirfare();
    int* times = getDepartAndArrival(); //Departing time in first position and arrival time in second position, in hours range from 0 to 24 
    double milesDriven = getDrivenMiles();
-   float parkingCost = getCostOfParking();
+   float parkingCost = getParkingFees();
    float taxiCost = getTaxiFees();
    float eventCost = getEventCost();
    float hotelCost = getHotelCost();
-   float rentals = getRentalAmount();
-   float mealCost = getNumberOfMeals();
+   float rentals = getCarRentalFees();
+   float mealCost = getMealsCost();
 
    //Calculate and print total allowable cost
    float totalAllowed = 0;
@@ -43,7 +44,7 @@ int main()
    totalAllowed += 6 * days; //Parking
    totalAllowed += 90 * (days - 1); //Lodging
    totalAllowed += 10 * days; //Taxi service
-   printf("The total cost the company will cover is $%.2f", totalAllowed);
+   printf("\nThe total cost the company will cover is $%.2f", totalAllowed);
 
    //Calculate and print total cost
    float totalCost = airCost; 
@@ -54,15 +55,15 @@ int main()
    totalCost += eventCost;
    totalCost += hotelCost;
    totalCost += mealCost;
-   printf("The total cost of the trip is $%.2f", totalCost);
+   printf("\nThe total cost of the trip is $%.2f", totalCost);
 
    //Calculate and report owed/saved amount
    if (totalCost > totalAllowed)
-      printf("You owe $%.2f", totalCost - totalAllowed);
+      printf("\nYou owe $%.2f", totalCost - totalAllowed);
    else if (totalCost < totalAllowed)
-      printf("You saved the company $%.2f", totalAllowed - totalCost);
+      printf("\nYou saved the company $%.2f", totalAllowed - totalCost);
    else 
-      printf("You're efficient! You spent just as much as the company would allow!");
+      printf("\nYou're efficient! You spent just as much as the company would allow!");
 
    return 0;
 }

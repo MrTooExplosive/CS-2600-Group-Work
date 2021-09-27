@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "daysTimeEventHotel.h"
 
 int main()
 {
@@ -7,7 +8,7 @@ int main()
    //Collect needed values
    unsigned int days = getTotalDays();
    float airCost = getAirfare();
-   double times[] = getDepartAndArrival(); //Departing time in first position and arrival time in second position, in hours range from 0 to 24 (up for discussion)
+   int* times = getDepartAndArrival(); //Departing time in first position and arrival time in second position, in hours range from 0 to 24 
    double milesDriven = getDrivenMiles();
    float parkingCost = getCostOfParking();
    float taxiCost = getTaxiFees();

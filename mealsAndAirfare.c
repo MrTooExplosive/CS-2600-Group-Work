@@ -4,7 +4,7 @@
 #include<string.h>
 
 /* meal description */
-void mealDetail(int a,char *b,int c,char *d,int n){
+int mealDetail(int a,char *b,int c,char *d,int n){
    /* local variables */
    int bn=0,ln=0,dn=0;
    int st=0,tt=0;
@@ -77,7 +77,14 @@ void mealDetail(int a,char *b,int c,char *d,int n){
   
 }
 
-void getRoundTripAirfare(){
+int getRoundTripAirfare(){
     printf("Any round-trip airfare? (Y/N): ");
-    
+    char user_choice = inputValidate(user_choice);
+
+    if (user_choice == 'Y' || user_choice == 'y')
+    {
+        printf("What was the amount for round-trip airfare? $");
+        double round_trip_airfare = inputValidate(round_trip_airfare, 0);
+        total_expenses += round_trip_airfare;
+    }
 }

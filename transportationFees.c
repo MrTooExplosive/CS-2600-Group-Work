@@ -64,15 +64,9 @@ double getPrivateVehicleUsed(double privateVehicleCost)
 }
 
 //function to get any parking fees
-double getParkingFees(double parkingFee, int days, double *reimbursement, double *amountSaved) 
+double getParkingFees(double parkingFee) 
 {
-    double totalParkingFees;
-    double parkingFeeCovered = 6.00;
-
-    //uses # of trip days, used to ask for any parking fees for each day of trip
-    for (int i = 0; i < days; i++)
-    {
-        printf("How much was spent on parking on day %d?\n", i + 1);
+        printf("How much was spent on parking during the trip?\n");
         scanf("%lf", &parkingFee);
 
         //input validation part
@@ -82,35 +76,13 @@ double getParkingFees(double parkingFee, int days, double *reimbursement, double
             scanf("%lf", &parkingFee);
         }
 
-        totalParkingFees += parkingFee;
-
-        /*this part calculates any reimbursement or saving by checking 
-        if the parking fees were less than or greater than $6 but it can 
-        also be done in main instead*/
-        
-        if (parkingFee < parkingFeeCovered) 
-        {
-            *amountSaved += parkingFeeCovered - parkingFee;
-        }
-
-        else if (parkingFee > parkingFeeCovered)
-        {
-            *reimbursement += parkingFee - parkingFeeCovered;
-        }
-    }
-    return totalParkingFees;
+    return parkingFee;
 }
 
 //function to get any taxi fees
-double getTaxiFees(double taxiFee, int days, double *reimbursement, double *amountSaved) 
+double getTaxiFees(double taxiFee) 
 {
-    double totalTaxiFees;
-    double taxiFeeCovered = 10.00;
-
-    //basically the same format as the parking function
-    for (int i = 0; i < days; i++)
-    {
-        printf("How much was spent on a taxi on day %d?\n", i + 1);
+        printf("How much was spent on taxis during the trip?\n");
         scanf("%lf", &taxiFee);
 
         //input validation part
@@ -119,18 +91,5 @@ double getTaxiFees(double taxiFee, int days, double *reimbursement, double *amou
             printf("Please enter a valid number.\n");
             scanf("%lf", &taxiFee);
         }
-
-        totalTaxiFees += taxiFee;
-        
-        if (taxiFee < taxiFeeCovered) 
-        {
-            *amountSaved += taxiFeeCovered - taxiFee;
-        }
-
-        else if (taxiFee > taxiFeeCovered)
-        {
-            *reimbursement += taxiFee - taxiFeeCovered;
-        }
-    }
-    return totalTaxiFees;
+    return taxiFee; 
 }
